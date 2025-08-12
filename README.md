@@ -6,17 +6,17 @@ The FSM is based on the following formal definition:
 
 ## FSM Definition
 
-### States  
+### Finite set of states  
 Q={S0,S1,S2}
 
-### Alphabet  
+### Finite input Alphabet  
 Σ={0,1}
 
-### Start state  
-S0
+### Initial state
+q0 = S0
 
-### Final states  
-F={S0,S1,S2} (all states are accepting)
+### Set of accepting final states  
+F={S0,S1,S2}
 
 ### Transition function δ:
 
@@ -61,7 +61,6 @@ You can send the binary sequence either as a string or an array of bits.
 ### Response
 ```bash
 {
-  "input": "1011",
   "final_state": "S2",
   "remainder": 2,
   "divisible": false
@@ -70,7 +69,7 @@ You can send the binary sequence either as a string or an array of bits.
 
 ### Example Usage
 ```bash
-curl -X POST http://localhost/api/modulo3 \
+curl -X POST http://localhost:8000/api/modulo3 \
   -H "Content-Type: application/json" \
   -d '{"bits":"110"}'
   ```
@@ -84,7 +83,7 @@ curl -X POST http://localhost/api/modulo3 \
   "divisible": true
 }
 ```
-### State meaning:
+### Input  Validations:
 
 - Input bits must be a non-empty string containing only 0 and 1.
 - Invalid input will return HTTP status 422 Unprocessable Entity.
@@ -95,8 +94,8 @@ curl -X POST http://localhost/api/modulo3 \
 
 ```bash
 
-git clone https://github.com/your-username/modulo3-fsm-api.git
-cd modulo3-fsm-api
+git clone https://github.com/your-username/mod-three-fsm.git
+cd mod-three-fsm
 ```
 
 2. Install dependencies
@@ -130,14 +129,12 @@ php artisan test --filter=Modulo3ApiTest
 ```
 
 ### Project Structure
-app/Services/Modulo3FsmService.php — FSM implementation using δ table.
 
-app/Http/Controllers/Modulo3Controller.php — API controller.
-
-routes/api.php — API route definition.
-
-tests/Feature/Modulo3ApiTest.php — PHPUnit tests.
+ - app/Services/Modulo3FsmService.php — FSM implementation using transition function δ.
+ - app/Http/Controllers/Modulo3Controller.php — API controller.
+ - routes/api.php — API route definition.
+ - tests/Feature/Modulo3ApiTest.php — PHPUnit tests.
 
 ### License
-MIT License — free to use, modify, and distribute.
+ - MIT License — free to use, modify, and distribute.
 
