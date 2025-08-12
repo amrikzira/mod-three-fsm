@@ -68,62 +68,68 @@ You can send the binary sequence either as a string or an array of bits.
 }
 ```
 
-Example Usage
-bash
-Copy
-Edit
+### Example Usage
+```bash
 curl -X POST http://localhost/api/modulo3 \
   -H "Content-Type: application/json" \
   -d '{"bits":"110"}'
-Response:
+  ```
 
-json
-Copy
-Edit
+### Response:
+```bash
 {
   "input": "110",
   "final_state": "S0",
   "remainder": 0,
   "divisible": true
 }
-Development
-Installation
-Clone the repository:
+```
+### State meaning:
 
-bash
-Copy
-Edit
+- Input bits must be a non-empty string containing only 0 and 1.
+- Invalid input will return HTTP status 422 Unprocessable Entity.
+
+### Setup Instructions
+
+1. Clone the repository:
+
+```bash
+
 git clone https://github.com/your-username/modulo3-fsm-api.git
 cd modulo3-fsm-api
-Install dependencies:
+```
 
-bash
-Copy
-Edit
+2. Install dependencies
+
+```bash
 composer install
-Configure environment:
+```
 
-bash
-Copy
-Edit
+3. Configure environment:
+
+```bash
 cp .env.example .env
 php artisan key:generate
-Run server:
+```
 
-bash
-Copy
-Edit
+4. Run server:
+
+```bash
 php artisan serve
-Testing
+```
+
+5. Testing
+
 This project includes feature tests to verify API correctness.
 
 Run tests:
 
-bash
-Copy
-Edit
+```bash
+
 php artisan test --filter=Modulo3ApiTest
-Project Structure
+```
+
+### Project Structure
 app/Services/Modulo3FsmService.php — FSM implementation using δ table.
 
 app/Http/Controllers/Modulo3Controller.php — API controller.
@@ -132,13 +138,6 @@ routes/api.php — API route definition.
 
 tests/Feature/Modulo3ApiTest.php — PHPUnit tests.
 
-License
+### License
 MIT License — free to use, modify, and distribute.
 
-yaml
-Copy
-Edit
-
----
-
-If you want, I can save this as a `README.md` file for you right now. Just tell me!s
