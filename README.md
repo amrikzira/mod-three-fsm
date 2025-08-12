@@ -7,26 +7,18 @@ The FSM is based on the following formal definition:
 ## FSM Definition
 
 ### States  
-\[
-Q = \{ S_0, S_1, S_2 \}
-\]
+Q={S0,S1,S2}
 
 ### Alphabet  
-\[
-\Sigma = \{ 0, 1 \}
-\]
+Σ={0,1}
 
 ### Start state  
-\[
-q_0 = S_0
-\]
+S0
 
 ### Final states  
-\[
-F = \{ S_0, S_1, S_2 \} \quad \text{(all states are accepting)}
-\]
+F={S0,S1,S2} (all states are accepting)
 
-### Transition function \(\delta\):
+### Transition function δ:
 
 | Current State | Input 0 | Input 1 |
 |---------------|---------|---------|
@@ -48,34 +40,34 @@ F = \{ S_0, S_1, S_2 \} \quad \text{(all states are accepting)}
 
 ```bash
 POST /api/modulo3
+```
 
-Request Body
+### Request Body
 You can send the binary sequence either as a string or an array of bits.
 
-Example (string)
-json
-Copy
-Edit
+### Example JSON (string)
+```bash
 {
   "bits": "1011"
 }
-Example (array)
-json
-Copy
-Edit
+```
+### Example (array)
+```bash
 {
   "bits": [1, 0, 1, 1]
 }
-Response
-json
-Copy
-Edit
+```
+
+### Response
+```bash
 {
   "input": "1011",
   "final_state": "S2",
   "remainder": 2,
   "divisible": false
 }
+```
+
 Example Usage
 bash
 Copy
