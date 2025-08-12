@@ -116,6 +116,12 @@ php artisan key:generate
 ```bash
 php artisan serve
 ```
+You might need to update the port number in .env file on this line - 
+
+```bash
+APP_URL=http://localhost:8001
+```
+You will get this URL in the terminal, when you run the above serve command. Copy the URL and set as APP_URL as shown above in .env file.
 
 5. Testing
 
